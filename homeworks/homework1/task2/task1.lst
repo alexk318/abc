@@ -1,0 +1,35 @@
+     1                                  global _start
+     2                                  
+     3                                  section .data
+     4 00000000 2E2F6D657373616765-         filename db "./message.txt", 0
+     4 00000009 2E74787400         
+     5                                  
+     6 0000000E 48656C6C6F20576F72-         message db "Hello World!", 10
+     6 00000017 6C64210A           
+     7                                      length equ $ - message
+     8                                      
+     9                                  section .text
+    10                                  
+    11                                  _start:
+    12 00000000 B802000000                  mov rax, 2
+    13 00000005 48BF-                       mov rdi, filename
+    13 00000007 [0000000000000000] 
+    14 0000000F BE42000000                  mov rsi, 0o102     ; O_CREAT | O_RDWR
+    15 00000014 BAFF010000                  mov rdx, 0o777
+    16 00000019 0F05                        syscall
+    17                                  
+    18 0000001B 4889C3                      mov rbx, rax
+    19                                  
+    20 0000001E B801000000                  mov rax, 1
+    21 00000023 4889DF                      mov rdi, rbx
+    22 00000026 48BE-                       mov rsi, message
+    22 00000028 [0E00000000000000] 
+    23 00000030 BA0D000000                  mov rdx, length
+    24 00000035 0F05                        syscall
+    25                                  
+    26 00000037 B803000000                  mov rax, 3
+    27 0000003C 4889DF                      mov rdi, rbx
+    28 0000003F 0F05                        syscall
+    29                                  
+    30 00000041 B83C000000                  mov rax, 60
+    31 00000046 0F05                        syscall
