@@ -1,0 +1,6 @@
+execve("./hw", ["./hw"], 0x7ffd02f00060 /* 26 vars */) = 0
+open("./message.txt", O_RDWR|O_CREAT, 0777) = 3
+write(3, "Hello World!\n", 13)          = 13
+close(3)                                = 0
+exit(3)                                 = ?
++++ exited with 3 +++
