@@ -1,0 +1,4 @@
+execve("./hw", ["./hw"], 0x7ffe8d594560 /* 27 vars */) = 0
+write(1, "Hello world!\n", 13)          = 13
+exit(0)                                 = ?
++++ exited with 0 +++
